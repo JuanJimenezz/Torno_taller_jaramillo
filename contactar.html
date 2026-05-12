@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TALLER JARAMILLO</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Icono -->
+    <link rel="icon" href="IMG/logo.png">
+
+    <link rel="stylesheet"
+    href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+    <style>
+
+        body{
+            background-color: #f5f5f5;
+        }
+
+        /* NAVBAR */
+        .navbar{
+            background-color: #111;
+        }
+
+        .navbar-brand,
+        .nav-link{
+            color: white !important;
+            font-weight: 500;
+        }
+
+        .nav-link:hover{
+            color: #ffc107 !important;
+        }
+
+        /* BANNER */
+        .banner{
+            background-image: linear-gradient(
+                rgba(0,0,0,0.6),
+                rgba(0,0,0,0.6)
+            ), url("IMG/BANNER.png");
+
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            color: white;
+        }
+
+        .banner h1{
+            font-size: 60px;
+            font-weight: bold;
+        }
+
+        .banner p{
+            font-size: 20px;
+        }
+
+        /* CARDS */
+        .card{
+            border: none;
+            transition: 0.3s;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .card:hover{
+            transform: translateY(-8px);
+            box-shadow: 0px 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .card img{
+            height: 220px;
+            object-fit: cover;
+        }
+
+        /* TITULOS */
+        .titulo{
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+
+        /* FOOTER */
+        footer{
+            background-color: #111;
+            color: white;
+            padding: 20px;
+            margin-top: 50px;
+            text-align: center;
+        }
+        /* SECCION CONTACTO */
+
+        .contacto-section{
+
+            background:
+            linear-gradient(
+            135deg,
+            #0f0f0f,
+            #1b1b1b,
+            #242424
+            );
+
+            padding: 80px 0;
+
+            color: white;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        /* DECORACION */
+
+        .contacto-section::before{
+
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            background:
+            rgba(255,193,7,0.15);
+
+            border-radius: 50%;
+
+            top: -100px;
+            left: -100px;
+
+            filter: blur(80px);
+        }
+
+        .contacto-section::after{
+
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+            height: 250px;
+
+            background:
+            rgba(37,211,102,0.15);
+
+            border-radius: 50%;
+
+            bottom: -100px;
+            right: -100px;
+
+            filter: blur(80px);
+        }
+
+        .subtitulo{
+            color: #ffc107;
+            font-size: 18px;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .descripcion{
+            max-width: 700px;
+            margin: auto;
+            color: #d1d1d1;
+        }
+
+        /* CARDS CONTACTO */
+
+        /* GLASSMORPHISM */
+
+        .contact-card{
+
+            background: rgba(255,255,255,0.08);
+
+            backdrop-filter: blur(14px);
+
+            -webkit-backdrop-filter: blur(14px);
+
+            border: 1px solid rgba(255,255,255,0.15);
+
+            border-radius: 25px;
+
+            overflow: hidden;
+
+            transition: 0.4s;
+
+            text-align: center;
+
+            box-shadow:
+            0 8px 32px rgba(0,0,0,0.25);
+
+            position: relative;
+        }
+
+        /* EFECTO BRILLO */
+
+        .contact-card::before{
+
+            content: "";
+
+            position: absolute;
+
+            width: 200px;
+            height: 200px;
+
+            background:
+            rgba(255,255,255,0.08);
+
+            border-radius: 50%;
+
+            top: -60px;
+            right: -60px;
+
+            pointer-events: none;
+        }
+
+        .contact-card:hover{
+
+            transform:
+            translateY(-12px)
+            scale(1.03);
+
+            border: 1px solid rgba(255,255,255,0.3);
+
+            box-shadow:
+            0 15px 40px rgba(0,0,0,0.35);
+
+            background:
+            rgba(255,255,255,0.12);
+        }
+
+        .contact-card img{
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            margin: auto;
+            margin-top: 30px;
+        }
+
+        .contact-card .card-body{
+            padding: 30px;
+        }
+
+        .contact-card h5{
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .contact-card p{
+            color: rgba(255,255,255,0.75);
+        }
+
+        /* BOTONES */
+
+        .btn-contacto{
+            border-radius: 50px;
+            padding: 10px 25px;
+            font-weight: bold;
+        }
+
+        /* COLORES PERSONALIZADOS */
+
+        .whatsapp{
+            background-color: #25D366;
+            color: white;
+        }
+
+        .gmail{
+            background-color: #EA4335;
+            color: white;
+        }
+
+        .facebook{
+            background-color: #1877F2;
+            color: white;
+        }
+        /* ICONOS */
+
+        .icono{
+            width: 130px;
+            height: 130px;
+
+            margin: auto;
+            margin-top: 30px;
+            margin-bottom: 20px;
+
+            border-radius: 50%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 65px;
+
+            transition: 0.4s;
+            box-shadow: 0 0 25px rgba(37,211,102,0.5);
+        }
+
+        .contact-card:hover .icono{
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* WHATSAPP */
+
+        .whatsapp-icon{
+            background: rgba(37, 211, 102, 0.15);
+            color: #25D366;
+            box-shadow: 0 0 25px rgba(37,211,102,0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        /* GMAIL */
+
+        .gmail-icon{
+            background: rgba(234, 67, 53, 0.15);
+            color: #EA4335;
+            box-shadow: 0 0 25px rgba(37,211,102,0.5);
+        }
+
+        /* FACEBOOK */
+
+        .facebook-icon{
+            background: rgba(24, 119, 242, 0.15);
+            color: #1877F2;
+            box-shadow: 0 0 25px rgba(37,211,102,0.5);
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-tools"></i>
+                TALLER JARAMILLO
+            </a>
+
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="Index.html">Inicio</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="trabajo.html">Trabajos</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="ubicar.html">Ubicación</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactar.html">Contacto</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- BANNER -->
+    <header class="banner">
+
+        <div>
+            <h1>TALLER JARAMILLO</h1>
+            <p>Calidad, confianza y experiencia automotriz</p>
+
+            <button class="btn btn-warning btn-lg mt-3">
+                Ver Servicios
+            </button>
+        </div>
+
+    </header>
+
+        <!-- CONTACTO -->
+    <section class="contacto-section">
+
+        <div class="container">
+
+            <!-- TITULO -->
+            <div class="text-center mb-5">
+
+                <h5 class="subtitulo">
+                    CONTACTO
+                </h5>
+
+                <h2 class="display-4 fw-bold">
+                    Comunícate Con Nosotros
+                </h2>
+
+                <p class="descripcion mt-3">
+                    Estamos disponibles para ayudarte con trabajos de torno,
+                    soldadura, prensa hidráulica y servicios industriales.
+                    Contáctanos por cualquiera de nuestros canales.
+                </p>
+
+            </div>
+
+            <!-- CARDS -->
+            <div class="row g-4">
+
+                <!-- WHATSAPP -->
+                <div class="col-md-4">
+
+                    <a href="https://wa.me/573104332626"
+                    target="_blank"
+                    style="text-decoration: none;">
+
+                        <div class="card contact-card h-100" data-aos="zoom-in">
+
+                            <div class="icono whatsapp-icon">
+                                <i class="bi bi-whatsapp"></i>
+                            </div>
+
+                            <div class="card-body">
+
+                                <h5>
+                                    WhatsApp
+                                </h5>
+
+                                <p>
+                                    Escríbenos directamente y recibe atención rápida y personalizada.
+                                </p>
+
+                                <button class="btn whatsapp btn-contacto">
+                                    <i class="bi bi-whatsapp"></i>
+                                    Enviar Mensaje
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+                <!-- GMAIL -->
+                <div class="col-md-4">
+
+                    <a href="mailto:tallerjaramillo@gmail.com"
+                    style="text-decoration: none;">
+
+                        <div class="card contact-card h-100" data-aos="zoom-in">
+
+                            <div class="icono gmail-icon">
+                                <i class="bi bi-envelope-fill"></i>
+                            </div>
+
+                            <div class="card-body">
+
+                                <h5>
+                                    Gmail
+                                </h5>
+
+                                <p>
+                                    Solicita cotizaciones, información o trabajos personalizados.
+                                </p>
+
+                                <button class="btn gmail btn-contacto">
+                                    <i class="bi bi-envelope-fill"></i>
+                                    Enviar Correo
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+                <!-- FACEBOOK -->
+                <div class="col-md-4">
+
+                    <a href="#"
+                    style="text-decoration: none;">
+
+                        <div class="card contact-card h-100" data-aos="zoom-in">
+
+                            <div class="icono facebook-icon">
+                                <i class="bi bi-facebook"></i>
+                            </div>
+
+                            <div class="card-body">
+
+                                <h5>
+                                    Facebook
+                                </h5>
+
+                                <p>
+                                    Síguenos y conoce nuestros últimos trabajos y proyectos.
+                                </p>
+
+                                <button class="btn facebook btn-contacto">
+                                    <i class="bi bi-facebook"></i>
+                                    Ir a Facebook
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- TEXTO EXTRA -->
+            <div class="text-center mt-5">
+
+                <h4 class="fw-bold">
+                    Atención rápida y trabajos garantizados
+                </h4>
+
+                <p class="descripcion mt-3">
+                    Más de años de experiencia ofreciendo soluciones industriales,
+                    reparación de piezas y trabajos especializados.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            <i class="bi bi-telephone"></i>
+            Contacto: 310 433 2626
+        </p>
+
+        <p>
+            <i class="bi bi-geo-alt"></i>
+            La Dorada, Caldas
+        </p>
+
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+    AOS.init();
+    </script>
+
+</body>
+</html>
